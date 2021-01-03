@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>My LIFF App</title>
+  <style>
+    body { padding: 256px }
+    button { display: none; width: 50%; padding: 16px 0; margin: 16px auto }
+  </style>
+</head>
+<body>
+
+  <button id="btnShare" onclick="sendShare()">Share Target Picker</button>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.5.0/sdk.js"></script>
+  <script>
+    async function sendShare() {
+		await liff.int({ liffId: "1655540855-nNaz3GP2"})
+		await liff.shareTargetPicker([
+        {
+          type: "flex",
+          altText: "Flex Message",
+          contents: {
+			"type": "bubble",
+			"direction": "ltr",
+			"hero": {
+				"type": "image",
+				"url": "https://picpost.postjung.com/316270.html",
+				"size": "full",
+				"aspectRatio": "1.51:1",
+				"aspectMode": "fit"
+			},
+			"body": {
+				"type": "box",
+				"layout": "vertical",
+				"contents": [
+				{
+					"type": "text",
+					"text": "แชร์เข้ากลุ่มคลิปเด็ด",
+					"align": "center",
+					"contents": []
+				}
+				]
+			},
+			"footer": {
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [
+				{
+					"type": "button",
+					"action": {
+					"type": "uri",
+					"label": "Share",
+					"uri": "https://liff.line.me/1655540855-nNaz3GP2"
+					},
+					"color": "#FFFFFFFF",
+					"margin": "xs",
+					"height": "sm",
+					"position": "relative"
+				}
+							]
+				}
+			}
+					}
+				])
+			liff.closeWindow()
+
+    }
+    main()
+  </script>
+</body>
+</html>
